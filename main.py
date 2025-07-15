@@ -6,10 +6,10 @@ app = FastAPI()
 
 @app.get("/get_cte")
 async def get_cte(tipo: str):
-    if tipo.lower() not in ["Gas", "Luce"]:
+    if tipo.lower() not in ["gas", "luce"]:
         raise HTTPException(status_code=400, detail="Parametro tipo invalido (scegli gas o luce)")
     
-    file_path = f"./pdf/Sorgenia_{tipo.lower()}.pdf"
+    file_path = f"./pdf/Sorgenia_{tipo.capitalize()}.pdf"
     
     try:
         with pdfplumber.open(file_path) as pdf:
