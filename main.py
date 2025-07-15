@@ -9,7 +9,7 @@ async def get_cte(tipo: str):
     if tipo.lower() not in ["gas", "luce"]:
         raise HTTPException(status_code=400, detail="Parametro tipo invalido (scegli gas o luce)")
     
-    file_path = f"./pdf/cte_{tipo.lower()}_sorgenia.pdf"
+    file_path = f"./pdf/sorgenia_{tipo.lower()}.pdf"
     
     try:
         with pdfplumber.open(file_path) as pdf:
